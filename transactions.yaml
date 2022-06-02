@@ -53,7 +53,7 @@ components:
       traits:
         - $ref: '#/components/messageTraits/commonHeaders'
       payload:
-          $ref: 'https://raw.githubusercontent.com/mzegarras/asyncapi-labs/main/schemas/TransactionRequested.avsc'          
+          $ref: 'https://raw.githubusercontent.com/mzegarras/asyncapi-labs/main/schemas/TransactionExecuted.avsc'          
   messageTraits:
     commonHeaders:
       headers:
