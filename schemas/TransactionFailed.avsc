@@ -1,0 +1,10 @@
+{
+  "namespace": "cloud.csonic.type",
+  "type": "record",
+  "name": "TransactionFailed",
+  "fields": [
+      {"name": "debitAccountId","type": ["null","string"]},
+      {"name": "creditAccountId","type": ["null","string"]},
+      {"name": "error","type": ["null","cloud.csonic.type.ErrorOperation"]}
+  ]
+}
