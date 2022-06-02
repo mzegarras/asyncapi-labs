@@ -31,7 +31,8 @@ channels:
       message:
         oneOf:
           - $ref: '#/components/messages/transactionExecuted'
-          - $ref: '#/components/messages/transactionSuspected'    
+          - $ref: '#/components/messages/transactionSuspected'
+          - $ref: '#/components/messages/transactionFailed'
 #--
 components:
   messages:
@@ -74,7 +75,7 @@ components:
       traits:
         - $ref: '#/components/messageTraits/commonHeaders'
       payload:
-          $ref: 'https://raw.githubusercontent.com/mzegarras/asyncapi-labs/main/schemas/TransactionSuspected.avsc'          
+          $ref: 'https://raw.githubusercontent.com/mzegarras/asyncapi-labs/main/schemas/TransactionFailed.avsc'          
   messageTraits:
     commonHeaders:
       headers:
