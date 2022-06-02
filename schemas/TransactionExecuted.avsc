@@ -1,0 +1,19 @@
+{
+  "namespace": "cloud.csonic.type",
+  "type": "record",
+  "name": "TransactionExecuted",
+  "fields": [
+    {"name": "debitAccountId","type": ["null","string"]},
+    {"name": "creditAccountId","type": ["null","string"]},
+    {
+      "name":"created",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+
+    {"name": "amount","type": ["null","double"]},
+    {"name": "status","type": ["null","string"]}
+  ]
+}

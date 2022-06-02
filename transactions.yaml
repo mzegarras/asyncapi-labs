@@ -1,0 +1,67 @@
+asyncapi: 2.4.0
+# ----
+id: "http://demo.com"
+# ----
+info:
+  title: Transactions Events
+  version: 1.0.0
+  description: |
+    # Microservice transactions
+  termsOfService: https://demo.pe/tos.html
+  contact:
+    name: Manuel Zegarra
+    email: mzegarra@gmail.com
+    url: https://www.csonic.cloud
+# ---
+tags:
+  - name: Microservice transactions
+    description: Event's specification for microservice transactions
+# ---
+channels:
+  t.transactions:
+    publish:
+      summary: |
+        summary
+      description: |
+        The topic on which customer events may be produced and consumed    
+      message:
+        $ref: '#/components/messages/transactionRequested'
+  t.transactions.events:
+    subscribe:
+      operationId: turnOn
+      message:
+        $ref: '#/components/messages/transactionExecuted'
+#--
+components:
+  messages:
+    transactionRequested:
+      name: transactionRequested
+      title: "Transaction title"
+      summary: "Transaction summary"
+      contentType: avro/binary
+      schemaFormat: application/vnd.apache.avro;version=1.9.0
+      traits:
+        - $ref: '#/components/messageTraits/commonHeaders'
+      payload:
+          $ref: 'https://raw.githubusercontent.com/mzegarras/asyncapi-labs/main/schemas/TransactionRequested.avsc'
+    transactionExecuted:
+      name: transactionRequested
+      title: "Transaction title"
+      summary: "Transaction summary"
+      contentType: avro/binary
+      schemaFormat: application/vnd.apache.avro;version=1.9.0
+      traits:
+        - $ref: '#/components/messageTraits/commonHeaders'
+      payload:
+          $ref: 'https://raw.githubusercontent.com/mzegarras/asyncapi-labs/main/schemas/TransactionRequested.avsc'          
+  messageTraits:
+    commonHeaders:
+      headers:
+        type: object
+        properties:
+          applicationId:
+            type: string         
+          transactionId:
+            type: integer
+            minimum: 0
+            maximum: 100 
