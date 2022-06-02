@@ -1,0 +1,9 @@
+{
+  "namespace": "cloud.csonic.type",
+  "type": "record",
+  "name": "TransactionSuspected",
+  "fields": [
+      {"name": "debitAccountId","type": ["null","string"]},
+      {"name": "creditAccountId","type": ["null","string"]}
+  ]
+}

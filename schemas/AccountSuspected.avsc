@@ -1,8 +1,0 @@
-{
-  "namespace": "cloud.csonic.type",
-  "type": "record",
-  "name": "AccountSuspected",
-  "fields": [
-    {"name": "accountId","type": ["null","string"]}
-  ]
-}

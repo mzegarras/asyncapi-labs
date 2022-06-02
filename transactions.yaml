@@ -26,11 +26,16 @@ channels:
         The topic on which customer events may be produced and consumed    
       message:
         $ref: '#/components/messages/transactionRequested'
-  t.transactions.events:
+  t.transactions.executed:
     subscribe:
-      operationId: turnOn
+      operationId: transactionOk
       message:
         $ref: '#/components/messages/transactionExecuted'
+  t.transactions.suspected:
+    subscribe:
+      operationId: transactionSuspected
+      message:
+        $ref: '#/components/messages/transactionExecuted'        
 #--
 components:
   messages:
@@ -45,7 +50,7 @@ components:
       payload:
           $ref: 'https://raw.githubusercontent.com/mzegarras/asyncapi-labs/main/schemas/TransactionRequested.avsc'
     transactionExecuted:
-      name: transactionRequested
+      name: transactionExecuted
       title: "Transaction title"
       summary: "Transaction summary"
       contentType: avro/binary
@@ -53,7 +58,17 @@ components:
       traits:
         - $ref: '#/components/messageTraits/commonHeaders'
       payload:
-          $ref: 'https://raw.githubusercontent.com/mzegarras/asyncapi-labs/main/schemas/TransactionExecuted.avsc'          
+          $ref: 'https://raw.githubusercontent.com/mzegarras/asyncapi-labs/main/schemas/TransactionExecuted.avsc'
+    transactionSuspected:
+      name: Transaction Suspected
+      title: "Transaction suspected title"
+      summary: "Transaction suspected summary"
+      contentType: avro/binary
+      schemaFormat: application/vnd.apache.avro;version=1.9.0
+      traits:
+        - $ref: '#/components/messageTraits/commonHeaders'
+      payload:
+          $ref: 'https://raw.githubusercontent.com/mzegarras/asyncapi-labs/main/schemas/TransactionSuspected.avsc'
   messageTraits:
     commonHeaders:
       headers:
