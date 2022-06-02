@@ -5,11 +5,16 @@
   "fields": [
     {"name": "debitAccountId","type": ["null","string"]},
     {"name": "creditAccountId","type": ["null","string"]},
-    {
-      "name":"created",
+     {"name": "created",
       "type": {
         "type": "long",
-        "logicalType": "timestamp-millis"
+        "logicalType": "timestamp-millis",
+        "arg.properties":{
+          "range":{
+            "min":1487715775521,
+            "max":1519273364600
+          }
+        }
       }
     },
 
