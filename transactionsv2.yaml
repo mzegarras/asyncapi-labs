@@ -31,7 +31,8 @@ channels:
       message:
         oneOf:
           - $ref: '#/components/messages/transactionExecuted'
-          - $ref: '#/components/messages/transactionSuspected'    
+          - $ref: '#/components/messages/transactionSuspected'
+          - $ref: '#/components/messages/transactionFailed'    
 #--
 components:
   messages:
@@ -66,9 +67,9 @@ components:
       payload:
           $ref: 'https://raw.githubusercontent.com/mzegarras/asyncapi-labs/main/schemas/TransactionSuspected.avsc'
     transactionFailed:
-      name: Transaction Suspected
-      title: "Transaction suspected title"
-      summary: "Transaction suspected summary"
+      name: Transaction failed
+      title: "Transaction failed title"
+      summary: "Transaction failed summary"
       contentType: avro/binary
       schemaFormat: application/vnd.apache.avro;version=1.9.0
       traits:
