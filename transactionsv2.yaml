@@ -3,7 +3,7 @@ asyncapi: 2.4.0
 id: "http://demo.com"
 # ----
 info:
-  title: Transactions Events
+  title: Transactions Microservice events
   version: 1.0.1
   description: |
     # Microservice transactions
@@ -22,14 +22,23 @@ servers:
     url: dev.mykafkacluster.org:8092
     protocol: kafka-secure
     description: Dev broker
+    protocolVersion: '1.0.0'
+    security:
+      - saslScramCreds: []        
   qa:
     url: qa.mykafkacluster.org:8092
     protocol: kafka-secure
     description: QA broker
+    protocolVersion: '1.0.0'
+    security:
+      - saslScramCreds: []    
   prod:
     url: qa.mykafkacluster.org:8092
     protocol: kafka-secure
-    description: Production broker         
+    description: Production broker
+    protocolVersion: '1.0.0'
+    security:
+      - saslScramCreds: []
 # ---
 channels:
   t.transactions:
@@ -100,4 +109,9 @@ components:
           transactionId:
             type: integer
             minimum: 0
-            maximum: 100 
+            maximum: 100
+  securitySchemes:
+      saslScramCreds:
+        type: userPassword
+        description: User & key from confluent
+        x-mykafka-sasl-mechanism: 'SCRAM-SHA-256' 

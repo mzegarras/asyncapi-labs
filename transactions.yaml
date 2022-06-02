@@ -22,14 +22,20 @@ servers:
     url: dev.mykafkacluster.org:8092
     protocol: kafka-secure
     description: Dev broker
+    security:
+    - saslScramCreds: []        
   qa:
     url: qa.mykafkacluster.org:8092
     protocol: kafka-secure
     description: QA broker
+    security:
+    - saslScramCreds: []        
   prod:
     url: qa.mykafkacluster.org:8092
     protocol: kafka-secure
-    description: Production broker     
+    description: Production broker
+    security:
+    - saslScramCreds: []    
 
 # --
 channels:
@@ -95,3 +101,8 @@ components:
             type: integer
             minimum: 0
             maximum: 100 
+  securitySchemes:
+      saslScramCreds:
+        type: userPassword
+        description: User & key from confluent
+        x-mykafka-sasl-mechanism: 'SCRAM-SHA-256'          
