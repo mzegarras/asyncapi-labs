@@ -1,9 +1,0 @@
-{
-  "namespace": "cloud.csonic.type",
-  "type": "record",
-  "name": "ErrorOperation",
-  "fields": [
-      {"name": "codeError","type": ["null","string"]},
-      {"name": "description","type": ["null","string"]}
-  ]
-}

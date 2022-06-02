@@ -5,6 +5,7 @@
   "fields": [
       {"name": "debitAccountId","type": ["null","string"]},
       {"name": "creditAccountId","type": ["null","string"]},
-      {"name": "error","type": ["null","cloud.csonic.type.ErrorOperation"]}
+      {"name": "codeError","type": ["null","string"]},
+      {"name": "description","type": ["null","string"]}
   ]
 }
