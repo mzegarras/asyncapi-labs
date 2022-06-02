@@ -17,6 +17,21 @@ tags:
   - name: Microservice transactions
     description: Event's specification for microservice transactions
 # ---
+servers:
+  dev:
+    url: dev.mykafkacluster.org:8092
+    protocol: kafka-secure
+    description: Dev broker
+  qa:
+    url: qa.mykafkacluster.org:8092
+    protocol: kafka-secure
+    description: QA broker
+  prod:
+    url: qa.mykafkacluster.org:8092
+    protocol: kafka-secure
+    description: Production broker     
+
+# --
 channels:
   t.transactions:
     publish:
